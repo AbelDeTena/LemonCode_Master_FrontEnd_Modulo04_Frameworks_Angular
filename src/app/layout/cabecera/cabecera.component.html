@@ -1,0 +1,10 @@
+<header>
+  <div class="container--img">
+    <img src="../../assets/logo_2.png" alt="Logo">
+  </div>
+    
+    <div class="container--text" *ngIf="authService.isLogged()" >
+        <span class="text"> Hola {{ authService.getUsername() }} !!!</span>
+        <button  mat-raised-button color="accent" (click)="logout()">Salir</button>
+      </div>
+</header>

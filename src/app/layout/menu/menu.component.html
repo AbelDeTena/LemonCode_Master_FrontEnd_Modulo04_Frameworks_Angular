@@ -1,0 +1,13 @@
+<mat-toolbar color="primary" *ngIf="!isLoggedIn" class="toolbar">
+    <a routerLinkActive="selected" mat-button routerLink="/home">HOME</a>
+    <a routerLinkActive="selected" mat-button  routerLink="/login">LOGIN</a>
+    <a routerLinkActive="selected" mat-button routerLink="/about">ABOUT</a>
+</mat-toolbar>
+<mat-toolbar color="primary" *ngIf="isLoggedIn" class="toolbar">
+    <a routerLinkActive="selected" mat-button routerLink="/dashboard">DASHBORAD</a>
+    <a routerLinkActive="selected" mat-button  routerLink="/galeria">GALERÍA</a>
+    <a routerLinkActive="selected" mat-button routerLink="/crud">CRUD</a>
+    <a routerLinkActive="selected" mat-button routerLink="/profile">PROFILE</a>
+</mat-toolbar>
+
+

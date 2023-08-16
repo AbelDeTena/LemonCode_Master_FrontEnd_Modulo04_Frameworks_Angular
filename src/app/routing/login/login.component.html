@@ -1,0 +1,32 @@
+<div class="page">
+    <div>
+        <h2 class="mat-headline-6" >Bienvenido</h2>
+        <h2 class="mat-headline-4">Inicia tu sesión</h2>
+    </div>
+    <form [formGroup]="formLogin" class="formulario" (ngSubmit)="login(formLogin.controls['email'].value, formLogin.controls['password'].value)">
+        <mat-form-field class="block">
+            <mat-label>User name</mat-label>
+            <input type="email" placeholder="master@lemoncode.net" matInput formControlName="email">
+            <mat-error *ngIf="formLogin.controls['email'].invalid">{{ getErrorMessage("email") }}</mat-error>
+        </mat-form-field>  
+
+        <mat-form-field mat-form-field class="block">
+            <mat-label>Enter your password</mat-label>
+            <input matInput [type]="hide ? 'password' : 'text'" placeholder="Password" formControlName="password">
+            <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+            <mat-error *ngIf="formLogin.controls['password'].invalid">{{ getErrorMessage("password") }}</mat-error>
+        </mat-form-field>        
+        <button *ngIf="!loading" mat-raised-button color="accent"  class="block"  type="submit"  [disabled]="formLogin.invalid" >Iniciar sesión</button> 
+        <mat-progress-spinner *ngIf="loading" mode="indeterminate"></mat-progress-spinner>  
+        <div *ngIf="loginError" class="error-message" class="footer">
+            <span>Credenciales incorrectas</span>
+            <a href="#">¿Olvidó su contraseña?</a></div>    
+    </form>
+    <div class="footer">
+        <span>¿No tienes una cuenta?</span>
+        <a href="#">Regístrate</a>
+    </div>
+
+</div>

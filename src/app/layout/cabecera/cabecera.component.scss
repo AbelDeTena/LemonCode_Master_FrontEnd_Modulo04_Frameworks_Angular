@@ -1,0 +1,43 @@
+header {
+    padding: 2em 6em;
+    display: flex;
+    img{
+        width: 200px;
+    }
+    .container--text{
+        flex: 1;
+        display: flex;    
+        flex-direction: column;           
+        justify-content: space-between;
+        align-items: flex-end;
+        .text {       
+            font-size: 1.5rem;                           
+          }  
+    }
+}
+
+/* Estilos para dispositivos móviles */
+@media screen and (max-width: 767px) {
+    header {
+      position: sticky;
+      padding: 1em;
+      display: flex;
+      flex-direction: column;
+      
+      .container--img {      
+       display: flex;
+       justify-content: center;
+       align-items: center;
+    }   
+
+    .container--text { 
+      margin-top: 1em;   
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      .text {       
+          font-size: 1rem;                           
+        }          
+    }
+}
+}

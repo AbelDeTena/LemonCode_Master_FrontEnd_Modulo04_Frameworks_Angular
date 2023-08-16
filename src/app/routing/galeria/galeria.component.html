@@ -1,0 +1,26 @@
+<div class="gallery-container">
+  <div class="selected-image">
+    <img rotate step="45" [src]="selectedPhoto.src" [alt]="selectedPhoto.title" [style.width]="imageWidth + '%'"/>      
+  </div> 
+
+    <div class="image-list">
+        <button mat-raised-button color="primary" (click)="previousPage()" [disabled]="currentPage === 0">Anterior</button>
+        <div *ngFor="let photo of getCurrentPagePhotos()">
+            <div (click)="selectPhoto(photo)">
+                <img [src]="'assets/' + photo.src" [alt]="photo.title" [ngClass]="{'currentSelect': photo.id === selectedPhoto.id}" />  
+            </div>
+        </div>
+        <button mat-raised-button color="primary" (click)="nextPage()" [disabled]="currentPage === totalPages - 1">Siguiente</button>
+    </div>
+    
+
+    <div class="controls">
+      <button mat-raised-button color="accent" (click)="previousPhoto()" [disabled]="selectedPhoto.id === 0">Anterior</button>
+      <button mat-raised-button color="accent" (click)="nextPhoto()" [disabled]="selectedPhoto.id === photoList.length - 1">Siguiente</button>
+      <button mat-raised-button color="accent" (click)="increaseSize()" [disabled]="imageWidth >= 100">Aumentar</button>
+      <button mat-raised-button color="accent" (click)="decreaseSize()"  [disabled]="imageWidth <= 60">Disminuir</button>
+      <button mat-raised-button color="accent" *ngIf="!isSlideshowRunning" (click)="startSlideshow()">Play</button>
+      <button mat-raised-button color="accent" *ngIf="isSlideshowRunning" (click)="stopSlideshow()">Stop</button>
+    </div>
+  </div>
+  

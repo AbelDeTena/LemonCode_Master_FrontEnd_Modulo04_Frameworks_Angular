@@ -1,0 +1,10 @@
+:host {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+  } 
+   
+.router-outlet-container {
+    flex: 1; 
+  }
